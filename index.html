@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Бьющееся сердце с волнами</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Julee&family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
     <style>
         /* Устанавливаем размеры экрана для мобильных устройств */
 body {
+    font-family: "Julee", serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     background-color: #000000c3;
-    font-family: Arial, sans-serif;
     flex-direction: column;
     overflow: hidden;
 }
@@ -143,7 +146,7 @@ body {
         <div class="waves" id="waves"></div>
         <div class="word-container" id="word-container"></div>
     </div>
-    <button class="button" onclick="animateHeart()">Нажми меня</button>
+    <button class="button" onclick="animateHeart()">Нажми на меня</button>
 
     <script src="heart.js"></script>
 <script>// Список слов
