@@ -55,6 +55,7 @@
       padding: 10px 20px;
       display: none;
       cursor: pointer;
+      z-index: 10; /* кнопка поверх остальных элементов */
     }
     /* Контейнер шкалы накопления силы */
     #powerContainer {
@@ -174,6 +175,8 @@
 
     // Начало удержания (нажатие/касание)
     function startHold(e) {
+      // Если событие произошло на кнопке, не запускаем логику
+      if (e.target === nextButton) return;
       if (isAnimating) return;
       isHolding = true;
       holdStartTime = performance.now();
@@ -272,9 +275,17 @@
     game.addEventListener("touchend", endHold);
     game.addEventListener("touchcancel", endHold);
 
+    // Остановка всплытия событий на кнопке, чтобы касания не перехватывались родительским элементом
+    nextButton.addEventListener("touchstart", function(e) {
+      e.stopPropagation();
+    });
+    nextButton.addEventListener("mousedown", function(e) {
+      e.stopPropagation();
+    });
+
     // Переход на следующую страницу по клику на кнопку
     nextButton.addEventListener("click", () => {
-      window.location.href = "O.html";
+      window.location.href = "o.html";
     });
   </script>
 </body>
